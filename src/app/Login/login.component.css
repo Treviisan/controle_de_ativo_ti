@@ -1,0 +1,45 @@
+/* Adicione estas regras ao seu arquivo de estilo do LoginComponent, por exemplo, login.component.css */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+}
+
+.login-form {
+  max-width: 350px;
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.login-form label {
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 5px solid #ffffff;
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+.login-form .login-button {
+  background-color: #cadbcb;
+  color: #ffffff;
+  padding: 10px;
+  border: white;
+  border-radius: 4px;
+  cursor: pointer;
+  align-self: flex-end;  /* Alinhe no canto superior direito */
+}
+
+.login-form .login-button:hover {
+  background-color: #00d5ff;
+}

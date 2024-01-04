@@ -1,0 +1,49 @@
+<div>
+  <nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" routerLink="/">SIMATIVO</a>
+
+    <ul class="navbar-nav d-flex flex-row justify-content-center">
+      <li class="nav-item cadastros">
+        <a class="nav-link" href="#" style="font-size: 15px; margin-right: 20px;">Cadastros</a>
+      </li>
+      <li class="nav-item imobilizados">
+        <a class="nav-link" href="#" style="font-size: 15px; margin-right: 25px;">Imobilizados</a>
+      </li>
+      <li class="nav-item nfe">
+        <a class="nav-link" href="#" style="font-size: 15px; margin-right: 950px;">Nfes</a>
+      </li>
+    </ul>
+
+    <div class="fixed-buttons" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+      <button class="btn btn-outline-register" routerLink="/register">Register</button>
+    </div>
+
+    <div class="fixed-buttons" style="position: fixed; top: 10px; right: 120px; z-index: 1000;">
+      <button class="btn btn-outline-success" routerLink="/login">Login</button>
+    </div>
+
+    <div class="user-info" style="position: fixed; top: 40px; right: 120px; z-index: 1000;">
+      <span *ngIf="authService.getIsAuthenticated()">
+        Logado: {{ authService.getCurrentUser() }}
+      </span>
+    </div>
+
+  </nav>
+
+  <router-outlet></router-outlet>
+
+  <ul class="collapsible" data-collapsible="">
+    <li>
+      <div class="collapsible-header"><i class="material-icons">settings</i>Ajustes</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">information</i>Sobre</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+    <li>
+      <div class="collapsible-header"><i class="material-icons">logout</i>Sair</div>
+      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
+    </li>
+  </ul>
+</div>

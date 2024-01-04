@@ -1,0 +1,57 @@
+/* Adicione estas regras ao seu arquivo de estilo do RegisterComponent, por exemplo, register.component.css */
+.register-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+}
+
+.register-form {
+  max-width: 350px;
+  width: 100%;
+  padding: 10px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.register-form label {
+  font-weight: bolder;
+  margin-bottom: 15px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 5px solid #ffffff;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+.register-form .register-button {
+  background-color: #cadbcb;
+  color: #ffffff;
+  padding: 10px;
+  border: white;
+  border-radius: 20px;
+  cursor: pointer;
+  align-self: flex-end;  /* Alinhe no canto superior direito */
+}
+
+.register-form .register-button:hover {
+  background-color: #00d5ff;
+}
+
+/* Adicione estas regras ao seu arquivo de estilo, por exemplo, styles.css */
+.fixed-buttons {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 1000;
+}
+
+.fixed-buttons button {
+  margin-top: 5px;
+}
