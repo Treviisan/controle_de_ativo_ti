@@ -15,7 +15,7 @@ export class AuthService {
       this.registeredUsers.push({ username, password });
       return true;
     } else {
-      return false; // Usuário já registrado
+      return false;
     }
   }
 
