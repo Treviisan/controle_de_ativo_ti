@@ -1,0 +1,19 @@
+/* Adapte conforme necessário */
+.card {
+  margin-top: 20px;
+}
+
+.card-header {
+  background-color: #00d5ff;
+  color: #fff;
+}
+
+.btn-primary {
+  background-color: #00d5ff;
+  border-color: #00d5ff;
+}
+
+.btn-primary:hover {
+  background-color: #00d5ff;
+  border-color: #00d5ff;
+}

@@ -1,0 +1,50 @@
+.container {
+  max-width: 800px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.mat-tab-group {
+  margin-top: 20px;
+}
+
+.moldura {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.col-med-4 {
+  flex: 0 0 calc(33.33% - 20px);
+}
+
+.col-med-3 {
+  flex: 0 0 calc(25% - 20px);
+}
+
+.col-med-2 {
+  flex: 0 0 calc(16.67% - 20px);
+}
+
+.col-max {
+  width: 100%;
+}
+
+.example-tab-icon {
+  margin-right: 5px;
+}
+
+.red-icon {
+  color: #e53935;
+}
+
+.blue-icon {
+  color: #1e88e5;
+}
+
+.button-container-right {
+  margin-left: auto;
+}

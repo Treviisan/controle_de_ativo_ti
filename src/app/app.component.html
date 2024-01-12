@@ -3,8 +3,16 @@
     <a class="navbar-brand" routerLink="/">SIMATIVO</a>
 
     <ul class="navbar-nav d-flex flex-row justify-content-center">
-      <li class="nav-item cadastros">
+      <li class="nav-item cadastros" (mouseenter)="showSubmenu = true" (mouseleave)="showSubmenu = false">
         <a class="nav-link" href="#" style="font-size: 15px; margin-right: 20px;">Cadastros</a>
+        <div *ngIf="showSubmenu" class="submenu">
+          <a class="submenu-item" routerLink="/usuarios">Usuários</a>
+          <a class="submenu-item" routerLink="/imobilizados">Imobilizados</a>
+          <a class="submenu-item" routerLink="/cadastro-nfe">Nfes</a>
+          <a class="submenu-item" routerLink="/empresas">Empresas</a>
+          <a class="submenu-item" routerLink="/clientes">Clientes</a>
+          <a class="submenu-item" routerLink="/grupos-usuarios" >Grupos de Usuários</a>
+        </div>
       </li>
       <li class="nav-item imobilizados">
         <a class="nav-link" href="#" style="font-size: 15px; margin-right: 25px;">Imobilizados</a>
@@ -14,36 +22,22 @@
       </li>
     </ul>
 
-    <div class="fixed-buttons" style="position: fixed; top: 10px; right: 10px; z-index: 1000;">
+    <div class="fixed-buttons" style="position: absolute; top: 10px; right: 87.50px; z-index: 1000;">
       <button class="btn btn-outline-register" routerLink="/register">Register</button>
     </div>
 
-    <div class="fixed-buttons" style="position: fixed; top: 10px; right: 120px; z-index: 1000;">
+    <div class="fixed-buttons" style="position: absolute; top: 10px; right: 5px; z-index: 1000;">
       <button class="btn btn-outline-success" routerLink="/login">Login</button>
     </div>
 
-    <div class="user-info" style="position: fixed; top: 40px; right: 120px; z-index: 1000;">
-      <span *ngIf="authService.getIsAuthenticated()">
-        Logado: {{ authService.getCurrentUser() }}
+    <div class="user-info" style="position: fixed; top: 40px; right: 10px; z-index: 1000;">
+      <span *ngIf="getAuthService().getIsAuthenticated()">
+        Logado: {{ getAuthService().getCurrentUser() }}
+        <button style="position: absolute; right: 5px; top: 635px;" class="btn btn-outline-danger" (click)="logout()">Sair</button>
       </span>
     </div>
-
-  </nav>
+</nav>
 
   <router-outlet></router-outlet>
 
-  <ul class="collapsible" data-collapsible="">
-    <li>
-      <div class="collapsible-header"><i class="material-icons">settings</i>Ajustes</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">information</i>Sobre</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-    <li>
-      <div class="collapsible-header"><i class="material-icons">logout</i>Sair</div>
-      <div class="collapsible-body"><p>Lorem ipsum dolor sit amet.</p></div>
-    </li>
-  </ul>
 </div>

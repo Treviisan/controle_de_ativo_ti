@@ -1,5 +1,6 @@
+// app.component.ts
 import { Component } from '@angular/core';
-import { AuthService } from './Login/login/auth.service';
+import { AuthService } from './início/login/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +8,16 @@ import { AuthService } from './Login/login/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(public authService: AuthService) {}
+  darkTheme = false;
+  showSubmenu = false;
 
-  getCurrentUser(): string {
-    return this.authService.getCurrentUser();
+  constructor (private authService: AuthService) { }
+
+  getAuthService(): AuthService {
+    return this.authService;
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 }

@@ -1,0 +1,23 @@
+/* Adicione este estilo para destacar o item "grupos-usuarios" */
+.navbar-nav .nav-item.grupos-usuarios:hover::after {
+  content: 'grupos-usuarios';
+  white-space: pre;
+  position: absolute;
+  width: 150px;
+  height: 200px;
+  background-color: #59626d;
+  color: #fff;
+  text-align: center;
+  line-height: 30px;
+  border-radius: 10px;
+  top: 100%;
+  left: 25.65%; /* Ajuste esta propriedade conforme necessário */
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+/* Ajuste de estilo para o texto dos itens "grupos-usuarios" */
+.navbar-nav .nav-item.grupos-usuarios:hover::after {
+  position: absolute;
+  z-index: 2;
+}
