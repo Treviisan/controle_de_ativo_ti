@@ -9,8 +9,9 @@ import { UsuariosComponent } from '../cadastros/usuarios/usuarios.component';
 import { ImobilizadosComponent } from '../cadastros/imobilizados/imobilizados.component';
 import { NfesComponent } from '../cadastros/nfes/nfes.component';
 import { EmpresasComponent } from '../cadastros/empresas/empresas.component';
-import { ClientesComponent } from '../cadastros/clientes/clientes.component';
 import { GruposUsuariosComponent } from '../cadastros/grupos-usuarios/grupos-usuarios.component';
+import { FornecedoresComponent } from '../cadastros/fornecedores/fornecedores.component';
+import { VisualizacaoImobilizadoComponent } from '../views/visualizacao-imobilizado/visualizacao-imobilizado.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -20,9 +21,10 @@ const routes: Routes = [
   { path: 'imobilizados', component: ImobilizadosComponent },
   { path: 'nfes', component: NfesComponent },
   { path: 'empresas', component: EmpresasComponent },
-  { path: 'clientes', component: ClientesComponent },
   { path: 'grupos-usuarios', component: GruposUsuariosComponent },
   { path: 'cadastro-nfe', component: NfesComponent },
+  { path: 'fornecedores', component: FornecedoresComponent },
+  { path: 'visualizacao-imobilizado/:id', component: VisualizacaoImobilizadoComponent },
 
   {
     path: '',

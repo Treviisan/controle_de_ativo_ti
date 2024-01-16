@@ -7,6 +7,8 @@ import { NfesService } from 'src/app/services/nfes.service';
   styleUrls: ['./nfes.component.css'],
 })
 export class NfesComponent implements OnInit {
+  grupoId: string = '0';
+
   constructor(private nfeService: NfesService) {}
 
   ngOnInit(): void {

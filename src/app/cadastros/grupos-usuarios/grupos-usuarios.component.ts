@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grupos-usuarios.component.css']
 })
 export class GruposUsuariosComponent implements OnInit {
+  grupoId: string = '0';
 
   constructor() { }
 

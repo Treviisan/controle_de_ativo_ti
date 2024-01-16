@@ -1,24 +1,30 @@
 <div>
   <nav class="navbar navbar-light bg-light">
-    <a class="navbar-brand" routerLink="/">SIMATIVO</a>
+    <a class="navbar-brand" routerLink="/" style="font-size: 25px; padding: 0 16px;">SIMATIVO</a>
 
     <ul class="navbar-nav d-flex flex-row justify-content-center">
       <li class="nav-item cadastros" (mouseenter)="showSubmenu = true" (mouseleave)="showSubmenu = false">
-        <a class="nav-link" href="#" style="font-size: 15px; margin-right: 20px;">Cadastros</a>
+        <a class="nav-link" href="#" style="font-size: 17px; margin-right: 0; padding: 0 16px ;">Cadastros</a>
         <div *ngIf="showSubmenu" class="submenu">
           <a class="submenu-item" routerLink="/usuarios">Usuários</a>
           <a class="submenu-item" routerLink="/imobilizados">Imobilizados</a>
           <a class="submenu-item" routerLink="/cadastro-nfe">Nfes</a>
           <a class="submenu-item" routerLink="/empresas">Empresas</a>
-          <a class="submenu-item" routerLink="/clientes">Clientes</a>
-          <a class="submenu-item" routerLink="/grupos-usuarios" >Grupos de Usuários</a>
+          <a class="submenu-item" routerLink="/fornecedores">Fornecedores</a>
+          <a class="submenu-item" routerLink="/grupos-usuarios">Grupos de Usuários</a>
         </div>
       </li>
-      <li class="nav-item imobilizados">
-        <a class="nav-link" href="#" style="font-size: 15px; margin-right: 25px;">Imobilizados</a>
-      </li>
-      <li class="nav-item nfe">
-        <a class="nav-link" href="#" style="font-size: 15px; margin-right: 950px;">Nfes</a>
+
+      <li class="nav-item consultas" (mouseenter)="showSubmenuConsultas = true" (mouseleave)="showSubmenuConsultas = false">
+        <a class="nav-link" href="#" style="font-size: 17px; margin-right: 1000px; margin-left: 2px;">Consultas</a>
+        <div *ngIf="showSubmenuConsultas" class="submenu">
+          <a class="submenu-item" routerLink="/usuarios">Usuários</a>
+          <a class="submenu-item" routerLink="/visualizacao-imobilizado/:id">Imobilizados</a>
+          <a class="submenu-item" routerLink="/cadastro-nfe">Nfes</a>
+          <a class="submenu-item" routerLink="/empresas">Empresas</a>
+          <a class="submenu-item" routerLink="/fornecedores">Fornecedores</a>
+          <a class="submenu-item" routerLink="/grupos-usuarios">Grupos de Usuários</a>
+        </div>
       </li>
     </ul>
 
@@ -36,8 +42,7 @@
         <button style="position: absolute; right: 5px; top: 635px;" class="btn btn-outline-danger" (click)="logout()">Sair</button>
       </span>
     </div>
-</nav>
+  </nav>
 
   <router-outlet></router-outlet>
-
 </div>

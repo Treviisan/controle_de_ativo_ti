@@ -1,0 +1,79 @@
+<!-- visualizacao-imobilizado.component.html -->
+
+<div class="consulta-imobilizados">
+
+  <h2 style="margin-top: -10px; margin-left: 65px; font-family: fantasy;">Consulta de Imobilizados</h2>
+
+  <!-- Adicione o menu suspenso -->
+  <div class="form-group col-md-6">
+    <label for="tipoSelecionado" class="label">Selecione o Tipo:</label>
+    <select class="form-control" id="tipoSelecionado" name="tipoSelecionado" [(ngModel)]="tipoSelecionado" (change)="onTipoDeProdutoChange()" required>
+      <option value="Notebook">Notebook</option>
+      <option value="Impressora">Impressora</option>
+      <option value="Perifericos">Periféricos</option>
+    </select>
+  </div>
+
+  <div class="search-container">
+    <label for="searchInput">Pesquisar:</label>
+    <input type="text" id="searchInput" [(ngModel)]="filtroNome" placeholder="Digite o nome...">
+  </div>
+
+  <table class="imobilizados-table" style="font-size: 15px;" >
+    <!-- Cabeçalho da tabela -->
+    <thead>
+      <tr>
+        <th style="width: 200px; white-space: nowrap;">Etiqueta</th>
+        <th style="width: 200px; white-space: nowrap;">ID Usuário</th>
+        <th style="width: 200px; white-space: nowrap;">Tipo de Produto</th>
+        <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">Processador</th>
+        <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">RAM</th>
+        <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">SSD</th>
+        <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">HD</th>
+        <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">Tela</th>
+        <th *ngIf="tipoSelecionado === 'Impressora'" style="width: 100px; white-space: nowrap;">Marca</th>
+        <th *ngIf="tipoSelecionado === 'Impressora'" style="width: 100px; white-space: nowrap;">Tipo de Impressora</th>
+        <th *ngIf="tipoSelecionado === 'Impressora'" style="width: 100px; white-space: nowrap;">Resolução de Impressão</th>
+        <th *ngIf="tipoSelecionado === 'Impressora'" style="width: 100px; white-space: nowrap;">Conectividade</th>
+        <th style="width: 200px; white-space: nowrap;">Data</th>
+        <th style="width: 2500px; white-space: nowrap;">Valor</th>
+      </tr>
+    </thead>
+    <!-- Corpo da tabela -->
+    <tbody>
+      <tr *ngFor="let imobilizado of imobilizados | filtroImobilizado:filtroNome" (click)="verDetalhes(imobilizado)">
+        <td>{{ imobilizado.etiqueta }}</td>
+        <td>{{ imobilizado.idUsuario }}</td>
+        <td>{{ imobilizado.tipoDeProduto }}</td>
+        <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.processador }}</td>
+        <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.ram }}</td>
+        <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.ssd }}</td>
+        <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.hd }}</td>
+        <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.tela }}</td>
+        <td *ngIf="tipoSelecionado === 'Impressora'">{{ imobilizado.marca }}</td>
+        <td *ngIf="tipoSelecionado === 'Impressora'">{{ imobilizado.tipoImpressora }}</td>
+        <td *ngIf="tipoSelecionado === 'Impressora'">{{ imobilizado.resolucaodeImpressao }}</td>
+        <td *ngIf="tipoSelecionado === 'Impressora'">{{ imobilizado.conectividade }}</td>
+        <td>{{ imobilizado.data }}</td>
+        <td>{{ imobilizado.valor | currency:'BRL' }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="imobilizadoSelecionado" class="details-container">
+    <h3>Detalhes do Imobilizado: {{ imobilizadoSelecionado.nome }}</h3>
+
+    <div>
+      <label>Categoria:</label>
+      <p>{{ imobilizadoSelecionado.categoria }}</p>
+    </div>
+
+    <div>
+      <label>Valor:</label>
+      <p>{{ imobilizadoSelecionado.valor | currency:'BRL' }}</p>
+    </div>
+
+    <!-- Adicione mais divs conforme necessário para outras propriedades -->
+  </div>
+
+</div>

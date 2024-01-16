@@ -1,1 +1,19 @@
-<p>grupos-usuarios works!</p>
+<div class="container">
+  <h3 style="margin-top: -10px; margin-left: 50px; font-family: fantasy;">Cadastro de Grupo de Usuários</h3>
+
+  <form style="margin-top: 30px;">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="idGrupo" class="label">ID Grupo:</label>
+        <input type="text" class="form-control" id="idGrupo" name="idGrupo" [value]="grupoId" [readonly]="true">
+      </div>
+
+    <div class="form-group">
+      <label for="nomeGrupo" class="label">Nome do Grupo:</label>
+      <input type="text" class="form-control" id="nomeGrupo" name="nomeGrupo" required>
+    </div>
+  </div>
+
+    <button type="submit" class="btn btn-primary" style="margin-top: 15px;">Cadastrar</button>
+  </form>
+</div>

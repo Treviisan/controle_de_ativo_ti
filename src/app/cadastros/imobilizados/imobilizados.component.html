@@ -1,0 +1,118 @@
+<div class="container">
+  <h3 style="margin-top: -10px; margin-left: 65px; font-family: fantasy;">Cadastro de Imobilizado</h3>
+
+  <form style="margin-top: 30px;">
+
+    <!-- Etiqueta e ID Usuário -->
+    <div class="form-group">
+      <label for="etiqueta">Etiqueta:</label>
+      <input type="text" id="etiqueta" name="etiqueta" [value]="grupoId" [readonly]="true" required>
+    </div>
+
+    <div class="form-group">
+      <label for="idUsuario">ID Usuário:</label>
+      <input type="text" id="idUsuario" name="idUsuario" required>
+    </div>
+
+    <!-- Tipo de Produto -->
+    <div class="form-group col-md-6">
+      <label for="tipo_de_produto" class="label">Tipo de Produto:</label>
+      <select class="form-control" id="tipo_de_produto" name="tipo_de_produto" [(ngModel)]="tipoDeProduto" (change)="onTipoDeProdutoChange()" required>
+        <option value="Notebook">Notebook</option>
+        <option value="Impressora">Impressora</option>
+        <option value="Periféricos">Periféricos</option>
+      </select>
+    </div>
+
+    <!--Campo para Impressora-->
+    <div *ngIf="showImpressoraFields">
+      <div class="form-group col-md-6">
+        <label for="marca">Marca:</label>
+        <select class="form-control" id="marca" [(ngModel)]="marca" >
+          <option value="HP">Hp</option>
+          <option value="Canon">Canon</option>
+          <option value="Epson">Epson</option>
+          <option value="Brother">Brother</option>
+          <option value="Sansung">Sansung</option>
+          <option value="Sansung">Xerox</option>
+        </select>
+      </div>
+
+    <div class="form-group col-md-6">
+        <label for="tipoImpressora">Tipo de Impressora:</label>
+        <select class="form-control" id="tipoImpressora" [(ngModel)]="tipoImpressora" >
+          <option value="JatodeTinta">Jato de Tinta</option>
+          <option value="Laser">Laser</option>
+          <option value="Multifuncionais(All-in-One)">Multifuncionais (All-in-One)</option>
+          <option value="Fotos">Fotos</option>
+          <option value="Matriciais">Matriciais</option>
+        </select>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="resolucaodeImpressao">Resolucao de Impressão:</label>
+      <select class="form-control" id="resolucaodeImpressao" [(ngModel)]="resolucaodeImpressao">
+        <option value="BaixaResolução(até600DPI)">Baixa Resolução (até 600 DPI)</option>
+        <option value="MédiaResolução(600-1200DPI)">Média Resolução (600-1200 DPI)</option>
+        <option value="AltaResolução(1200-2400DPI)">Alta Resolução (1200-2400 DPI)</option>
+        <option value="MuitoAltaResolução(2400DPIeacima)">Muito Alta Resolução (2400 DPI e acima)</option>
+      </select>
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="conectividade">Conectividade:</label>
+      <select class="form-control" id="conectividade" [(ngModel)]="conectividade">
+        <option value="USB">USB</option>
+        <option value="Wi-Fi">Wi-Fi</option>
+        <option value="Ethernet">Ethernet</option>
+        <option value="Bluetooth">Bluetooth</option>
+        <option value="NFC">NFC</option>
+        <option value="Cloud Printing">Cloud Printing</option>
+      </select>
+    </div>
+    </div>
+
+    <!-- Campos específicos para Notebook -->
+    <div *ngIf="showNotebookFields">
+      <div class="form-group col-md-6">
+        <label for="processador">Processador:</label>
+        <input type="text" id="processador" name="processador" [(ngModel)]="processador">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="ram">RAM:</label>
+        <input type="text" id="ram" name="ram" [(ngModel)]="ram">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="ssd">SSD:</label>
+        <input type="text" id="ssd" name="ssd" [(ngModel)]="ssd">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="hd">HD:</label>
+        <input type="text" id="hd" name="hd" [(ngModel)]="hd">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="tela">Tela:</label>
+        <input type="text" id="tela" name="tela" [(ngModel)]="tela">
+    </div>
+    </div>
+
+    <!-- Data e Valor -->
+    <div class="form-group">
+      <label for="data">Data:</label>
+      <input type="date" id="data" name="data" required>
+    </div>
+
+    <div class="form-group">
+      <label for="valor">Valor:</label>
+      <input type="text" id="valor" name="valor" required>
+    </div>
+
+    <!-- Botão de Cadastro -->
+    <button type="submit" style="margin-top: 10px;">Cadastrar</button>
+
+</form>
+</div>

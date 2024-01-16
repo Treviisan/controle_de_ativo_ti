@@ -13,8 +13,11 @@ import { UsuariosComponent } from './cadastros/usuarios/usuarios.component';
 import { ImobilizadosComponent } from './cadastros/imobilizados/imobilizados.component';
 import { NfesComponent } from './cadastros/nfes/nfes.component';
 import { EmpresasComponent } from './cadastros/empresas/empresas.component';
-import { ClientesComponent } from './cadastros/clientes/clientes.component';
 import { GruposUsuariosComponent } from './cadastros/grupos-usuarios/grupos-usuarios.component';
+import { FornecedoresComponent } from './cadastros/fornecedores/fornecedores.component';
+import { VisualizacaoImobilizadoComponent } from './views/visualizacao-imobilizado/visualizacao-imobilizado.component';
+import { FiltroImobilizadoPipe } from './filtro-imobilizado.pipe';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,14 +30,17 @@ import { GruposUsuariosComponent } from './cadastros/grupos-usuarios/grupos-usua
     ImobilizadosComponent,
     NfesComponent,
     EmpresasComponent,
-    ClientesComponent,
     GruposUsuariosComponent,
+    FornecedoresComponent,
+    VisualizacaoImobilizadoComponent,
+    FiltroImobilizadoPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    RouterModule
+    RouterModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

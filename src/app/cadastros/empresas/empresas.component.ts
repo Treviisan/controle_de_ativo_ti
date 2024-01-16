@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./empresas.component.css']
 })
 export class EmpresasComponent implements OnInit {
+  grupoId: string = '0';
 
   constructor() { }
 

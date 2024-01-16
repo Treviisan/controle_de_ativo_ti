@@ -1,5 +1,3 @@
-// usuarios.component.ts
-
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./usuarios.component.css']
 })
 export class UsuariosComponent {
+  grupoId: string = '0';
   usuario: any = {}; // Modelo para os dados do usuário
 
   cadastrarUsuario() {

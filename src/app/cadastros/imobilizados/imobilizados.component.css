@@ -1,50 +1,49 @@
-.container {
-  max-width: 800px;
-  margin: 20px auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-}
-
-.mat-tab-group {
-  margin-top: 20px;
-}
-
-.moldura {
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
 }
 
-.col-med-4 {
-  flex: 0 0 calc(33.33% - 20px);
+.container {
+  width: 600px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.col-med-3 {
-  flex: 0 0 calc(25% - 20px);
+.form-group {
+  margin-bottom: 5px;
 }
 
-.col-med-2 {
-  flex: 0 0 calc(16.67% - 20px);
+label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-.col-max {
-  width: 100%;
+input {
+  width: 110%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
 }
 
-.example-tab-icon {
-  margin-right: 5px;
+button {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 15px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
 }
 
-.red-icon {
-  color: #e53935;
-}
-
-.blue-icon {
-  color: #1e88e5;
-}
-
-.button-container-right {
-  margin-left: auto;
+button:hover {
+  background-color: #0056b3;
 }

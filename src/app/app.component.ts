@@ -1,4 +1,3 @@
-// app.component.ts
 import { Component } from '@angular/core';
 import { AuthService } from './início/login/auth.service';
 
@@ -9,9 +8,10 @@ import { AuthService } from './início/login/auth.service';
 })
 export class AppComponent {
   darkTheme = false;
-  showSubmenu = false;
-
-  constructor (private authService: AuthService) { }
+  showSubmenu: boolean = false;
+  showSubmenuConsultas: boolean = false;
+    
+  constructor(private authService: AuthService) {}
 
   getAuthService(): AuthService {
     return this.authService;

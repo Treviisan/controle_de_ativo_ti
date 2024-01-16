@@ -67,3 +67,63 @@ body {
   margin-left: 10px;
   align-items: center;
 }
+
+
+/* Adicione este código ao seu arquivo de estilo CSS - Consultas */
+
+.navbar {
+  background-color: #f8f9fa; /* Cor de fundo */
+  padding: 10px;
+  text-align: center;
+}
+
+.navbar-brand {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-link {
+  font-size: 15px;
+  margin: 0 29px;
+  margin-top: 5px;
+  text-decoration: none;
+  color: #000000; /* Cor do link */
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  background-color: #f8f9fa; /* Cor de fundo do submenu */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do submenu */
+  z-index: 1;
+}
+
+.nav-item:hover .submenu {
+  display: block;
+}
+
+.submenu-item {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #007bff; /* Cor do link do submenu */
+}
+
+/* Botões fixos */
+.fixed-buttons {
+  position: fixed;
+  top: 10px;
+  z-index: 1000;
+}
+
+.btn-outline-register,
+.btn-outline-success,
+.btn-outline-danger {
+  margin: 0 5px;
+}
