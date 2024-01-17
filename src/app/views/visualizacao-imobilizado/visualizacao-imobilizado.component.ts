@@ -9,6 +9,8 @@ export class VisualizacaoImobilizadoComponent implements OnInit {
   imobilizadoSelecionado: any;
   filtroNome: string = '';
   tipoSelecionado: string = 'Notebook';
+  tipoPeriferico: string = 'Mouse';
+  layoutTeclado: string = '';
   imobilizados: any[] = [];
 
   constructor() { }
@@ -21,13 +23,11 @@ export class VisualizacaoImobilizadoComponent implements OnInit {
   }
 
   filtroImobilizado(imobilizado: any, filtro: string): boolean {
-    // Lógica de filtro aqui
-    // Exemplo: return imobilizado.nome.toLowerCase().includes(filtro.toLowerCase());
-    return true; // Substitua pelo código real
+    //imobilizado.nome.toLowerCase().includes(filtro.toLowerCase());
+    return true;
   }
 
   onTipoDeProdutoChange(): void {
-    // Implemente a lógica para atualizar dinamicamente os campos
     console.log('Tipo de Produto alterado para:', this.tipoSelecionado);
   }
 }

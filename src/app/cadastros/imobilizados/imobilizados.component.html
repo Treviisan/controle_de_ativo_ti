@@ -1,79 +1,78 @@
 <div class="container">
   <h3 style="margin-top: -10px; margin-left: 65px; font-family: fantasy;">Cadastro de Imobilizado</h3>
 
-  <form style="margin-top: 30px;">
+  <form style="margin-top: 30px;" (ngSubmit)="onSubmit()">
 
     <!-- Etiqueta e ID Usuário -->
     <div class="form-group">
       <label for="etiqueta">Etiqueta:</label>
-      <input type="text" id="etiqueta" name="etiqueta" [value]="grupoId" [readonly]="true" required>
+      <input type="number" id="etiqueta" name="etiqueta" [value]="grupoId" [readonly]="true" required>
     </div>
 
     <div class="form-group">
       <label for="idUsuario">ID Usuário:</label>
-      <input type="text" id="idUsuario" name="idUsuario" required>
+      <input type="number" id="idUsuario" name="idUsuario" required>
     </div>
 
-    <!-- Tipo de Produto -->
     <div class="form-group col-md-6">
       <label for="tipo_de_produto" class="label">Tipo de Produto:</label>
       <select class="form-control" id="tipo_de_produto" name="tipo_de_produto" [(ngModel)]="tipoDeProduto" (change)="onTipoDeProdutoChange()" required>
         <option value="Notebook">Notebook</option>
         <option value="Impressora">Impressora</option>
-        <option value="Periféricos">Periféricos</option>
+        <option value="Perifericos">Periféricos</option>
       </select>
     </div>
 
-    <!--Campo para Impressora-->
-    <div *ngIf="showImpressoraFields">
+    <!-- Campos para Impressora -->
+    <div *ngIf="showImpressoraFields && tipoDeProduto === 'Impressora'">
       <div class="form-group col-md-6">
         <label for="marca">Marca:</label>
-        <select class="form-control" id="marca" [(ngModel)]="marca" >
+        <select class="form-control" id="marca" [(ngModel)]="marcaImpressora">
           <option value="HP">Hp</option>
           <option value="Canon">Canon</option>
           <option value="Epson">Epson</option>
           <option value="Brother">Brother</option>
           <option value="Sansung">Sansung</option>
-          <option value="Sansung">Xerox</option>
+          <option value="Xerox">Xerox</option>
         </select>
       </div>
 
-    <div class="form-group col-md-6">
+      <div class="form-group col-md-6">
         <label for="tipoImpressora">Tipo de Impressora:</label>
-        <select class="form-control" id="tipoImpressora" [(ngModel)]="tipoImpressora" >
+        <select class="form-control" id="tipoImpressora" [(ngModel)]="tipoImpressora">
           <option value="JatodeTinta">Jato de Tinta</option>
           <option value="Laser">Laser</option>
           <option value="Multifuncionais(All-in-One)">Multifuncionais (All-in-One)</option>
           <option value="Fotos">Fotos</option>
           <option value="Matriciais">Matriciais</option>
         </select>
-    </div>
+      </div>
 
-    <div class="form-group col-md-6">
-      <label for="resolucaodeImpressao">Resolucao de Impressão:</label>
-      <select class="form-control" id="resolucaodeImpressao" [(ngModel)]="resolucaodeImpressao">
-        <option value="BaixaResolução(até600DPI)">Baixa Resolução (até 600 DPI)</option>
-        <option value="MédiaResolução(600-1200DPI)">Média Resolução (600-1200 DPI)</option>
-        <option value="AltaResolução(1200-2400DPI)">Alta Resolução (1200-2400 DPI)</option>
-        <option value="MuitoAltaResolução(2400DPIeacima)">Muito Alta Resolução (2400 DPI e acima)</option>
-      </select>
-    </div>
+      <div class="form-group col-md-6">
+        <label for="resolucaodeImpressao">Resolucao de Impressão:</label>
+        <select class="form-control" id="resolucaodeImpressao" [(ngModel)]="resolucaodeImpressao">
+          <option value="BaixaResolução(até600DPI)">Baixa Resolução (até 600 DPI)</option>
+          <option value="MédiaResolução(600-1200DPI)">Média Resolução (600-1200 DPI)</option>
+          <option value="AltaResolução(1200-2400DPI)">Alta Resolução (1200-2400 DPI)</option>
+          <option value="MuitoAltaResolução(2400DPIeacima)">Muito Alta Resolução (2400 DPI e acima)</option>
+        </select>
+      </div>
 
-    <div class="form-group col-md-6">
-      <label for="conectividade">Conectividade:</label>
-      <select class="form-control" id="conectividade" [(ngModel)]="conectividade">
-        <option value="USB">USB</option>
-        <option value="Wi-Fi">Wi-Fi</option>
-        <option value="Ethernet">Ethernet</option>
-        <option value="Bluetooth">Bluetooth</option>
-        <option value="NFC">NFC</option>
-        <option value="Cloud Printing">Cloud Printing</option>
-      </select>
-    </div>
+      <div class="form-group col-md-6">
+        <label for="conectividade">Conectividade:</label>
+        <select class="form-control" id="conectividade" [(ngModel)]="conectividade">
+          <option value="USB">USB</option>
+          <option value="Wi-Fi">Wi-Fi</option>
+          <option value="Ethernet">Ethernet</option>
+          <option value="Bluetooth">Bluetooth</option>
+          <option value="NFC">NFC</option>
+          <option value="Cloud Printing">Cloud Printing</option>
+        </select>
+      </div>
     </div>
 
     <!-- Campos específicos para Notebook -->
-    <div *ngIf="showNotebookFields">
+    <div *ngIf="showNotebookFields && tipoDeProduto === 'Notebook'">
       <div class="form-group col-md-6">
         <label for="processador">Processador:</label>
         <input type="text" id="processador" name="processador" [(ngModel)]="processador">
@@ -97,22 +96,99 @@
       <div class="form-group col-md-6">
         <label for="tela">Tela:</label>
         <input type="text" id="tela" name="tela" [(ngModel)]="tela">
-    </div>
-    </div>
-
-    <!-- Data e Valor -->
-    <div class="form-group">
-      <label for="data">Data:</label>
-      <input type="date" id="data" name="data" required>
+      </div>
     </div>
 
-    <div class="form-group">
-      <label for="valor">Valor:</label>
-      <input type="text" id="valor" name="valor" required>
+    <div *ngIf="showPerifericosFields && tipoDeProduto === 'Perifericos'">
+      <div class="form-group col-md-6">
+        <label for="tipoPeriferico">Tipo de Periférico:</label>
+        <select class="form-control" id="tipoPeriferico" [(ngModel)]="tipoPeriferico" (change)="onTipoPerifericoChange()" required>
+          <option value="">Selecione...</option>
+          <option value="Teclado">Teclado</option>
+          <option value="Mouse">Mouse</option>
+          <!-- Adicione outros tipos de periféricos conforme necessário -->
+        </select>
+      </div>
     </div>
 
-    <!-- Botão de Cadastro -->
-    <button type="submit" style="margin-top: 10px;">Cadastrar</button>
+   <!-- Campos específicos para Periféricos - Teclado -->
+<div *ngIf="showTecladoFields && tipoPeriferico === 'Teclado'">
+  <div class="form-group col-md-6">
+    <label for="marca">Marca do Teclado:</label>
+    <input type="text" id="marca" name="marca" [(ngModel)]="marcaTeclado">
+  </div>
+
+      <div class="form-group col-md-6">
+        <label for="numeroModeloTeclado">Número do Modelo do Teclado:</label>
+        <input type="text" id="numeroModeloTeclado" name="numeroModeloTeclado" [(ngModel)]="numeroModeloTeclado">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="layoutTeclado">Layout do Teclado:</label>
+        <input type="text" id="layoutTeclado" name="layoutTeclado" [(ngModel)]="layoutTeclado">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="interfaceTeclado">Interface do Teclado:</label>
+        <input type="text" id="interfaceTeclado" name="interfaceTeclado" [(ngModel)]="interfaceTeclado">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="corTeclado">Cor do Teclado:</label>
+        <input type="text" id="corTeclado" name="corTeclado" [(ngModel)]="corTeclado">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="garantiaTeclado">Garantia do Teclado:</label>
+        <input type="text" id="garantiaTeclado" name="garantiaTeclado" [(ngModel)]="garantiaTeclado">
+      </div>
+    </div>
+
+    <div *ngIf="showMouseFields && tipoPeriferico === 'Mouse'">
+      <div class="form-group col-md-6">
+        <label for="marcaMouse">Marca do Mouse:</label>
+        <input type="text" id="marcaMouse" name="marcaMouse" [(ngModel)]="marcaMouse">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="serieMouse">Série do Mouse:</label>
+        <input type="text" id="serieMouse" name="serieMouse" [(ngModel)]="serieMouse">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="corMouse">Cor do Mouse:</label>
+        <input type="text" id="corMouse" name="corMouse" [(ngModel)]="corMouse">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="interfaceMouse">Interface do Mouse:</label>
+        <input type="text" id="interfaceMouse" name="interfaceMouse" [(ngModel)]="interfaceMouse">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="botoesMouse">Botões do Mouse:</label>
+        <input type="text" id="botoesMouse" name="botoesMouse" [(ngModel)]="botoesMouse">
+      </div>
+
+      <div class="form-group col-md-6">
+        <label for="garantiaMouse">Garantia do Mouse:</label>
+        <input type="text" id="garantiaMouse" name="garantiaMouse" [(ngModel)]="garantiaMouse">
+      </div>
+</div>
+
+<!-- Data e Valor -->
+<div class="form-group">
+  <label for="data">Data:</label>
+  <input type="date" id="data" name="data" [(ngModel)]="data" required>
+</div>
+
+<div class="form-group">
+  <label for="valor">Valor:</label>
+  <input type="text" id="valor" name="valor" [(ngModel)]="valor" required>
+</div>
+
+<!-- Botão de Cadastro -->
+<button type="submit" style="margin-top: 10px;">Cadastrar</button>
 
 </form>
 </div>

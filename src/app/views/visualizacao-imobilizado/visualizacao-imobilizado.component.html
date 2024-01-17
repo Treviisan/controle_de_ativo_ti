@@ -1,12 +1,9 @@
-<!-- visualizacao-imobilizado.component.html -->
-
 <div class="consulta-imobilizados">
-
   <h2 style="margin-top: -10px; margin-left: 65px; font-family: fantasy;">Consulta de Imobilizados</h2>
 
   <!-- Adicione o menu suspenso -->
   <div class="form-group col-md-6">
-    <label for="tipoSelecionado" class="label">Selecione o Tipo:</label>
+    <label for="tipoSelecionado" class="label" style="font-size: 15px;">Selecione o Tipo:</label>
     <select class="form-control" id="tipoSelecionado" name="tipoSelecionado" [(ngModel)]="tipoSelecionado" (change)="onTipoDeProdutoChange()" required>
       <option value="Notebook">Notebook</option>
       <option value="Impressora">Impressora</option>
@@ -14,18 +11,32 @@
     </select>
   </div>
 
+  <div *ngIf="tipoSelecionado === 'Perifericos'" class="form-group col-md-6">
+    <label for="tipoPeriferico" class="label">Selecione o Periférico:</label>
+    <select class="form-control" id="tipoPeriferico" name="tipoPeriferico" [(ngModel)]="tipoPeriferico">
+      <option value="Mouse">Mouse</option>
+      <option value="Teclado">Teclado</option>
+      <option value="Pendrive">Pendrive</option>
+      <option value="Fone de Ouvido">Fone de Ouvido</option>
+      <option value="Webcam">Webcam</option>
+      <!-- Adicione outros periféricos conforme necessário -->
+    </select>
+  </div>
+
   <div class="search-container">
-    <label for="searchInput">Pesquisar:</label>
+    <label for="searchInput" style="font-size: 15px;">Pesquisar:</label>
     <input type="text" id="searchInput" [(ngModel)]="filtroNome" placeholder="Digite o nome...">
   </div>
 
-  <table class="imobilizados-table" style="font-size: 15px;" >
+  <table class="imobilizados-table" style="font-size: 15px;">
     <!-- Cabeçalho da tabela -->
     <thead>
       <tr>
         <th style="width: 200px; white-space: nowrap;">Etiqueta</th>
         <th style="width: 200px; white-space: nowrap;">ID Usuário</th>
-        <th style="width: 200px; white-space: nowrap;">Tipo de Produto</th>
+        <th *ngIf="tipoSelecionado === 'Notebook' || tipoSelecionado === 'Impressora'" style="width: 100px; white-space: nowrap;">Tipo de Produto</th>
+        <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">Modelo</th>
+        <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">Marca</th>
         <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">Processador</th>
         <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">RAM</th>
         <th *ngIf="tipoSelecionado === 'Notebook'" style="width: 100px; white-space: nowrap;">SSD</th>
@@ -35,16 +46,37 @@
         <th *ngIf="tipoSelecionado === 'Impressora'" style="width: 100px; white-space: nowrap;">Tipo de Impressora</th>
         <th *ngIf="tipoSelecionado === 'Impressora'" style="width: 100px; white-space: nowrap;">Resolução de Impressão</th>
         <th *ngIf="tipoSelecionado === 'Impressora'" style="width: 100px; white-space: nowrap;">Conectividade</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Marca</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Número do Modelo</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Layout do Teclado</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Interface</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Cor</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Garantia</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'" style="width: 100px; white-space: nowrap;">Marca</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'" style="width: 100px; white-space: nowrap;">Série</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'" style="width: 100px; white-space: nowrap;">Cor</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'" style="width: 100px; white-space: nowrap;">Interface</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'" style="width: 100px; white-space: nowrap;">Botões</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'" style="width: 100px; white-space: nowrap;">Garantia</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Garantia</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Garantia</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Garantia</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Garantia</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Garantia</th>
+        <th *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'" style="width: 100px; white-space: nowrap;">Garantia</th>
         <th style="width: 200px; white-space: nowrap;">Data</th>
         <th style="width: 2500px; white-space: nowrap;">Valor</th>
       </tr>
     </thead>
+
     <!-- Corpo da tabela -->
     <tbody>
       <tr *ngFor="let imobilizado of imobilizados | filtroImobilizado:filtroNome" (click)="verDetalhes(imobilizado)">
         <td>{{ imobilizado.etiqueta }}</td>
         <td>{{ imobilizado.idUsuario }}</td>
         <td>{{ imobilizado.tipoDeProduto }}</td>
+        <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.modelo }}</td>
+        <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.marca }}</td>
         <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.processador }}</td>
         <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.ram }}</td>
         <td *ngIf="tipoSelecionado === 'Notebook'">{{ imobilizado.ssd }}</td>
@@ -54,6 +86,22 @@
         <td *ngIf="tipoSelecionado === 'Impressora'">{{ imobilizado.tipoImpressora }}</td>
         <td *ngIf="tipoSelecionado === 'Impressora'">{{ imobilizado.resolucaodeImpressao }}</td>
         <td *ngIf="tipoSelecionado === 'Impressora'">{{ imobilizado.conectividade }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.marca }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.numero_modelo }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.layoutTeclado }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.interface }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.cor }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'">{{ imobilizado.marca }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'">{{ imobilizado.serie }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'">{{ imobilizado.cor }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'">{{ imobilizado.interface }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'">{{ imobilizado.botoes }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Mouse'">{{ imobilizado.garantia }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.garantia }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.garantia }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.garantia }}</td>
+        <td *ngIf="tipoSelecionado === 'Perifericos' && tipoPeriferico === 'Teclado'">{{ imobilizado.garantia }}</td>
+
         <td>{{ imobilizado.data }}</td>
         <td>{{ imobilizado.valor | currency:'BRL' }}</td>
       </tr>
@@ -72,8 +120,5 @@
       <label>Valor:</label>
       <p>{{ imobilizadoSelecionado.valor | currency:'BRL' }}</p>
     </div>
-
-    <!-- Adicione mais divs conforme necessário para outras propriedades -->
   </div>
-
 </div>
