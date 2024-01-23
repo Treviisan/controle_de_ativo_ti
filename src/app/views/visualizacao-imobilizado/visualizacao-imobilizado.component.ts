@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class VisualizacaoImobilizadoComponent implements OnInit {
   imobilizadoSelecionado: any;
   filtroNome: string = '';
-  tipoSelecionado: string = 'Notebook';
-  tipoPeriferico: string = 'Mouse';
+  tipoSelecionado: string = '';
+  tipoPeriferico: string = '';
   layoutTeclado: string = '';
   imobilizados: any[] = [];
 
